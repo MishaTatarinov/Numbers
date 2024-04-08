@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_package = "ru.test.numbers";
+option java_multiple_files = true;
+
+message NumberRequest {
+  int32  firstValue = 1;
+  int32  lastValue = 2;
+}
+
+message NumberResponse {
+  int32 generateValue = 1;
+}
+
+service NumberService {
+  rpc getNumbers(NumberRequest) returns (stream NumberResponse) {};
+}
